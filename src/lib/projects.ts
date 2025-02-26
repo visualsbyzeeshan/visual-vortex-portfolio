@@ -4,6 +4,7 @@ export type ProjectType = {
   title: string;
   category: string;
   image: string;
+  videoUrl?: string;
   year: number;
   client: string;
   description: string;
@@ -23,6 +24,7 @@ export const projects: ProjectType[] = [
     title: "Desert Mirage - Short Film",
     category: "Video Editing",
     image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1025&auto=format&fit=crop",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-down-a-mountain-41576-large.mp4",
     year: 2023,
     client: "SunLight Studios",
     description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."

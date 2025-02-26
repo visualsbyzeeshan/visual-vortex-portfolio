@@ -7,6 +7,7 @@ const PortfolioGrid = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [isAnimating, setIsAnimating] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
   useEffect(() => {
     setIsAnimating(true);
@@ -42,6 +43,34 @@ const PortfolioGrid = () => {
     };
   }, [filteredProjects]);
 
+  const handleMouseEnter = (id: string) => {
+    const video = videoRefs.current[id];
+    if (video) {
+      video.play().catch((error) => console.log("Playback failed:", error));
+    }
+  };
+
+  const handleMouseLeave = (id: string) => {
+    const video = videoRefs.current[id];
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
+
+  const handleClick = (id: string) => {
+    const video = videoRefs.current[id];
+    if (video) {
+      if (video.paused) {
+        video.play().catch((error) => console.log("Playback failed:", error));
+      } else {
+        video.pause();
+      }
+    }
+  };
+
+  console.log("Filtered projects:", filteredProjects); // Debug log
+
   return (
     <div className="py-8">
       <div className="mb-10 overflow-x-auto hide-scrollbar">
@@ -67,13 +96,33 @@ const PortfolioGrid = () => {
         }`}
       >
         {filteredProjects.map((project) => (
-          <div key={project.id} className="portfolio-grid-item portfolio-item opacity-0">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-[250px] object-cover object-center rounded-xl"
-              loading="lazy"
-            />
+          <div
+            key={project.id}
+            className="portfolio-grid-item portfolio-item opacity-0"
+            onMouseEnter={() => handleMouseEnter(project.id)}
+            onMouseLeave={() => handleMouseLeave(project.id)}
+            onClick={() => handleClick(project.id)}
+          >
+            {project.videoUrl ? (
+              <video
+                ref={(el) => {
+                  if (el) videoRefs.current[project.id] = el;
+                }}
+                src={project.videoUrl}
+                className="w-full h-[250px] object-cover object-center rounded-xl"
+                loop
+                muted
+                playsInline
+                poster={project.image}
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-[250px] object-cover object-center rounded-xl"
+                loading="lazy"
+              />
+            )}
             <div className="portfolio-item-overlay rounded-xl">
               <span className="text-sm font-medium mb-1 opacity-70">
                 {project.category} • {project.year}
