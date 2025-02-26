@@ -78,8 +78,6 @@ const PortfolioGrid = () => {
     }
   };
 
-  console.log("Filtered projects:", filteredProjects); // Debug log
-
   return (
     <div className="py-8">
       <div className="mb-10 overflow-x-auto hide-scrollbar">
@@ -107,7 +105,7 @@ const PortfolioGrid = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="portfolio-grid-item portfolio-item opacity-0 transition-opacity duration-500"
+            className="portfolio-grid-item portfolio-item opacity-0 transition-opacity duration-500 hover:scale-105 hover:z-10"
             onMouseEnter={() => handleMouseEnter(project.id)}
             onMouseLeave={() => handleMouseLeave(project.id)}
             onClick={() => handleClick(project.id)}

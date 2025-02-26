@@ -7,6 +7,7 @@ import { projects } from "@/lib/projects";
 const PortfolioSection = () => {
   const featuredProjects = projects.slice(0, 3);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,6 +38,21 @@ const PortfolioSection = () => {
     };
   }, []);
 
+  const handleMouseEnter = (id: string) => {
+    const video = videoRefs.current[id];
+    if (video) {
+      video.play().catch((error) => console.log("Playback failed:", error));
+    }
+  };
+
+  const handleMouseLeave = (id: string) => {
+    const video = videoRefs.current[id];
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
+
   return (
     <section id="portfolio" className="py-20 md:py-32">
       <div className="container-custom" ref={sectionRef}>
@@ -52,15 +68,31 @@ const PortfolioSection = () => {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700"
+              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700 hover:scale-105 hover:z-10"
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+              onMouseEnter={() => handleMouseEnter(project.id)}
+              onMouseLeave={() => handleMouseLeave(project.id)}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[250px] object-cover object-center rounded-xl"
-                loading="lazy"
-              />
+              {project.videoUrl ? (
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[project.id] = el;
+                  }}
+                  src={project.videoUrl}
+                  className="w-full h-[250px] object-cover object-center rounded-xl"
+                  loop
+                  muted
+                  playsInline
+                  poster={project.image}
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-[250px] object-cover object-center rounded-xl"
+                  loading="lazy"
+                />
+              )}
               <div className="portfolio-item-overlay rounded-xl">
                 <span className="text-sm font-medium mb-1 opacity-70">
                   {project.category}

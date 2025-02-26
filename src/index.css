@@ -124,11 +124,11 @@
     @apply opacity-100;
   }
 
-  .portfolio-item img {
+  .portfolio-item img, .portfolio-item video {
     @apply transition-transform duration-700 ease-in-out;
   }
 
-  .portfolio-item:hover img {
+  .portfolio-item:hover img, .portfolio-item:hover video {
     @apply scale-110;
   }
 
