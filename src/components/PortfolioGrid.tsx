@@ -9,6 +9,20 @@ const PortfolioGrid = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
+  // Immediate useEffect to set initial visibility
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const items = document.querySelectorAll(".portfolio-grid-item");
+      items.forEach((item) => {
+        item.classList.remove("opacity-0");
+        item.classList.add("opacity-100");
+      });
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     setIsAnimating(true);
     const timer = setTimeout(() => {
@@ -24,23 +38,18 @@ const PortfolioGrid = () => {
   }, [selectedCategory]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    // After filtering, apply the fade-in animation
+    const fadeInTimer = setTimeout(() => {
+      const items = document.querySelectorAll(".portfolio-grid-item");
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.remove("opacity-0");
+          item.classList.add("opacity-100");
+        }, index * 100);
+      });
+    }, 100);
 
-    const items = document.querySelectorAll(".portfolio-grid-item");
-    items.forEach((item) => observer.observe(item));
-
-    return () => {
-      items.forEach((item) => observer.unobserve(item));
-    };
+    return () => clearTimeout(fadeInTimer);
   }, [filteredProjects]);
 
   const handleMouseEnter = (id: string) => {
@@ -98,7 +107,7 @@ const PortfolioGrid = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="portfolio-grid-item portfolio-item opacity-0"
+            className="portfolio-grid-item portfolio-item opacity-0 transition-opacity duration-500"
             onMouseEnter={() => handleMouseEnter(project.id)}
             onMouseLeave={() => handleMouseLeave(project.id)}
             onClick={() => handleClick(project.id)}
