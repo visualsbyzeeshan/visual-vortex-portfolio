@@ -106,7 +106,6 @@ const PortfolioGrid = () => {
                 src={project.videoUrl}
                 className="w-full h-[250px] object-cover object-center rounded-xl"
                 loop
-                muted
                 playsInline
                 controls={false}
               />
