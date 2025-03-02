@@ -32,7 +32,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex space-x-4 mb-6">
+          <div className="flex space-x-4 mb-8">
             <a
               href="https://www.instagram.com/s_wasil.ali?igsh=eTMzYzZhdzA0bzQz"
               target="_blank"
@@ -58,15 +58,13 @@ const Footer = () => {
             >
               <Mail className="h-5 w-5" />
             </a>
-          </div>
-
-          <div className="flex items-center space-x-2 mb-8">
-            <Phone className="h-4 w-4 text-primary" />
-            <span className="text-muted-foreground">+92 3363802473 (main)</span>
-          </div>
-          <div className="flex items-center space-x-2 mb-8">
-            <Phone className="h-4 w-4 text-primary opacity-0" />
-            <span className="text-muted-foreground">+92 3353457142</span>
+            <a
+              href="tel:+923363802473"
+              className="p-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
+              aria-label="Phone"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
           </div>
 
           <div className="flex space-x-6 mb-8">

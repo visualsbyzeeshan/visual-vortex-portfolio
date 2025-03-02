@@ -1,5 +1,4 @@
 
-import { User } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const AboutMe = () => {
@@ -51,18 +50,18 @@ const AboutMe = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-300">
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-secondary/20">
+            <div className="relative rounded-2xl overflow-hidden max-h-[450px] mx-auto md:h-auto bg-secondary/20">
               <img
                 src="/lovable-uploads/d093b3b7-b816-4547-a7a6-a9628ad19a39.png"
                 alt="S. Wasil Ali - Video Editor & Animator"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                style={{ maxHeight: "450px", width: "auto" }}
                 onError={(e) => {
                   // Fallback to a placeholder if image fails to load
                   e.currentTarget.src = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158";
                   e.currentTarget.onerror = null; // Prevent infinite error loop
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
 

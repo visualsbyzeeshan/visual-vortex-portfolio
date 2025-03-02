@@ -2,10 +2,33 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { projects } from "@/lib/projects";
+
+// Featured project data with direct video URLs
+const featuredProjects = [
+  {
+    id: "1",
+    title: "Cinematic Videography",
+    category: "Cinematic Videography",
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1025&auto=format&fit=crop",
+    videoUrl: "https://drive.google.com/uc?export=download&id=1K4ORhPhlubdsCwfZ7ORPrh2XEs9cRRYs",
+  },
+  {
+    id: "2",
+    title: "Promotional & Commercial",
+    category: "Promotional & Commercial",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1170&auto=format&fit=crop",
+    videoUrl: "https://drive.google.com/uc?export=download&id=1RjhVy_iPK3Qy54swQEUWdnCzGkYX5NwT",
+  },
+  {
+    id: "3",
+    title: "Visual Effects & CGI",
+    category: "Visual Effects & CGI",
+    image: "https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?q=80&w=1170&auto=format&fit=crop",
+    videoUrl: "https://drive.google.com/uc?export=download&id=1DAYTwWQn0WsF7tLfbc6kZukWaMS_3MG4",
+  },
+];
 
 const PortfolioSection = () => {
-  const featuredProjects = projects.slice(0, 3);
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
@@ -68,40 +91,23 @@ const PortfolioSection = () => {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700 hover:scale-105 hover:z-10"
+              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700 hover:scale-105 hover:z-10 relative overflow-hidden rounded-xl"
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={() => handleMouseLeave(project.id)}
             >
-              {project.videoUrl ? (
-                <video
-                  ref={(el) => {
-                    if (el) videoRefs.current[project.id] = el;
-                  }}
-                  src={project.videoUrl}
-                  className="w-full h-[250px] object-cover object-center rounded-xl"
-                  loop
-                  muted
-                  playsInline
-                  poster={project.image}
-                />
-              ) : (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-[250px] object-cover object-center rounded-xl"
-                  loading="lazy"
-                />
-              )}
-              <div className="portfolio-item-overlay rounded-xl">
-                <span className="text-sm font-medium mb-1 opacity-70">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-sm opacity-70 line-clamp-2 mb-3">
-                  {project.description}
-                </p>
-              </div>
+              <video
+                ref={(el) => {
+                  if (el) videoRefs.current[project.id] = el;
+                }}
+                src={project.videoUrl}
+                className="w-full h-[250px] object-cover object-center rounded-xl"
+                loop
+                muted
+                playsInline
+                poster={project.image}
+                controls={false}
+              />
             </div>
           ))}
         </div>

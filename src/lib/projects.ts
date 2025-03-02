@@ -12,10 +12,11 @@ export type ProjectType = {
 
 export const categories = [
   "All",
-  "Animation",
-  "Video Editing",
-  "Motion Graphics",
-  "Visual Effects",
+  "Cinematic Videography",
+  "Promotional & Commercial",
+  "Visual Effects & CGI",
+  "Visual Motion Art",
+  "Youtube Content"
 ];
 
 export const projects: ProjectType[] = [
