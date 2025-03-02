@@ -1,5 +1,5 @@
 
-import { User, Download, Phone, Mail, Linkedin, Instagram } from "lucide-react";
+import { User } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const AboutMe = () => {
@@ -53,7 +53,7 @@ const AboutMe = () => {
           <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-300">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-secondary/20">
               <img
-                src="/about-image.jpg"
+                src="/lovable-uploads/d093b3b7-b816-4547-a7a6-a9628ad19a39.png"
                 alt="S. Wasil Ali - Video Editor & Animator"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -82,44 +82,6 @@ const AboutMe = () => {
                 Beyond editing, I constantly explore new techniques and push creative limits. I believe every frame 
                 tells a story, and I'm dedicated to making each one as impactful as possible.
               </p>
-              
-              <div className="pt-4 space-y-4">
-                <div className="flex flex-col space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Mail className="h-4 w-4 text-primary" />
-                    <a href="mailto:syedwasilali663@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                      syedwasilali663@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Phone className="h-4 w-4 text-primary" />
-                    <span className="text-muted-foreground">+92 3363802473 (main)</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Phone className="h-4 w-4 text-primary opacity-0" />
-                    <span className="text-muted-foreground">+92 3353457142</span>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="mailto:syedwasilali663@gmail.com" 
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90"
-                  >
-                    <User className="mr-2 h-4 w-4" />
-                    Contact Me
-                  </a>
-                  <a 
-                    href="https://drive.google.com/file/d/1soi4-1qmY7jK03_e-GtvR9gngbxXtfIF/view?usp=sharing" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium transition-colors hover:bg-secondary/80"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Resume
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

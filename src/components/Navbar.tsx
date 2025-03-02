@@ -48,7 +48,7 @@ const Navbar = () => {
           to="/"
           className="font-display text-xl font-bold tracking-tight transition-opacity hover:opacity-80"
         >
-          Wasil Ali
+          S.Wasil Ali
         </Link>
 
         {/* Desktop Navigation */}

@@ -69,8 +69,9 @@ const Hero = () => {
               View My Work <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <a
-              href="/wasil-ali-resume.pdf"
+              href="https://drive.google.com/file/d/1soi4-1qmY7jK03_e-GtvR9gngbxXtfIF/view?usp=sharing"
               target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium transition-colors hover:bg-secondary/80"
             >
               Download Resume <FileText className="ml-2 h-4 w-4" />
