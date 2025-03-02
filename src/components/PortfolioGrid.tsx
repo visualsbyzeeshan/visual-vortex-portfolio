@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { projects, categories } from "@/lib/projects";
 
@@ -19,7 +18,7 @@ const PortfolioGrid = () => {
         item.classList.add("opacity-100");
       });
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -104,7 +103,7 @@ const PortfolioGrid = () => {
                   if (el) videoRefs.current[project.id] = el;
                 }}
                 src={project.videoUrl}
-                className="w-full h-[250px] object-cover object-center rounded-xl"
+                className="w-[350px] h-[250px] object-fill object-center rounded-xl"
                 loop
                 playsInline
                 controls={false}

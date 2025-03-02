@@ -100,7 +100,7 @@ const PortfolioSection = () => {
                   if (el) videoRefs.current[project.id] = el;
                 }}
                 src={project.videoUrl}
-                className="w-full h-[250px] object-cover object-center rounded-xl"
+                className="w-[350px] h-[250px] object-fill object-center rounded-xl"
                 loop
                 playsInline
                 controls={false}
