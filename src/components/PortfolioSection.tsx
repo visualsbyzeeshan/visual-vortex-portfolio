@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import videoUrll from '../media/Advertisment.mp4'
+import landingPageVideo2 from '../media/landingPageVideo2.mp4'
+import landingPageVideo3 from '../media/landingPageVideo3.mp4'
 
 // Featured project data with updated video URLs
 const featuredProjects = [
@@ -8,19 +11,19 @@ const featuredProjects = [
     id: "1",
     title: "Cinematic Videography",
     category: "Cinematic Videography",
-    videoUrl: "https://streamable.com/8kwwq0",
+    videoUrl: videoUrll,
   },
   {
     id: "2",
     title: "Promotional & Commercial",
     category: "Promotional & Commercial",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-urban-landscape-in-movement-seen-from-a-car-window-9587-large.mp4",
+    videoUrl: landingPageVideo2,
   },
   {
     id: "3",
     title: "Visual Effects & CGI",
     category: "Visual Effects & CGI",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4",
+    videoUrl: landingPageVideo3,
   },
 ];
 

@@ -1,3 +1,6 @@
+import advertisementVideo from '../media/Advertisment.mp4'
+import cinematic1 from '../media/cinematic1.mp4'
+
 
 export type ProjectType = {
   id: string;
@@ -23,7 +26,7 @@ export const projects: ProjectType[] = [
     id: "1",
     title: "Desert Mirage - Short Film",
     category: "Cinematic Videography",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-down-a-mountain-41576-large.mp4",
+    videoUrl: advertisementVideo,
     year: 2023,
     client: "SunLight Studios",
     description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
@@ -32,7 +35,7 @@ export const projects: ProjectType[] = [
     id: "2",
     title: "Neon Dreams - Animation",
     category: "Visual Motion Art",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4",
+    videoUrl: cinematic1,
     year: 2023,
     client: "Glow Productions",
     description: "An original 3D animation piece exploring urban nights through neon aesthetics."
