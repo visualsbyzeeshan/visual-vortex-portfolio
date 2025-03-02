@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import videoUrll from '../media/Advertisment.mp4'
 import landingPageVideo2 from '../media/landingPageVideo2.mp4'
-import landingPageVideo3 from '../media/landingPageVideo3.mp4'
+import cinematicVideography6 from '../media/6. Cinematic Videography.mp4';
 
 // Featured project data with updated video URLs
 const featuredProjects = [
@@ -23,7 +23,7 @@ const featuredProjects = [
     id: "3",
     title: "Visual Effects & CGI",
     category: "Visual Effects & CGI",
-    videoUrl: landingPageVideo3,
+    videoUrl: cinematicVideography6,
   },
 ];
 
