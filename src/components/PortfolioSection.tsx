@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const featuredProjects = [
   {
     id: "1",
-    title: "Cinematic Videography",
+    title: "Cinematic Faizan",
     category: "Cinematic Videography",
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-down-a-mountain-41576-large.mp4",
   },
