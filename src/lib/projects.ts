@@ -1,5 +1,11 @@
 import advertisementVideo from '../media/Advertisment.mp4'
 import cinematic1 from '../media/cinematic1.mp4'
+import cinematicVideography1 from '../media/1. Cinematic Videography.mp4';
+import cinematicVideography2 from '../media/2. Cinematic Videography.mp4';
+import cinematicVideography3 from '../media/3. Cinematic Videography.mp4';
+import cinematicVideography4 from '../media/4. Cinematic Videography.mp4';
+import cinematicVideography5 from '../media/5. Cinematic Videography.mp4';
+import cinematicVideography6 from '../media/6. Cinematic Videography.mp4';
 
 
 export type ProjectType = {
@@ -26,13 +32,58 @@ export const projects: ProjectType[] = [
     id: "1",
     title: "Desert Mirage - Short Film",
     category: "Cinematic Videography",
-    videoUrl: advertisementVideo,
+    videoUrl: cinematicVideography1,
     year: 2023,
     client: "SunLight Studios",
     description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
   },
   {
     id: "2",
+    title: "Desert Mirage - Short Film",
+    category: "Cinematic Videography",
+    videoUrl: cinematicVideography2,
+    year: 2023,
+    client: "SunLight Studios",
+    description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
+  },
+  {
+    id: "3",
+    title: "Desert Mirage - Short Film",
+    category: "Cinematic Videography",
+    videoUrl: cinematicVideography3,
+    year: 2023,
+    client: "SunLight Studios",
+    description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
+  },
+  {
+    id: "4",
+    title: "Desert Mirage - Short Film",
+    category: "Cinematic Videography",
+    videoUrl: cinematicVideography4,
+    year: 2023,
+    client: "SunLight Studios",
+    description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
+  },
+  {
+    id: "5",
+    title: "Desert Mirage - Short Film",
+    category: "Cinematic Videography",
+    videoUrl: cinematicVideography5,
+    year: 2023,
+    client: "SunLight Studios",
+    description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
+  },
+  {
+    id: "6",
+    title: "Desert Mirage - Short Film",
+    category: "Cinematic Videography",
+    videoUrl: cinematicVideography6,
+    year: 2023,
+    client: "SunLight Studios",
+    description: "A cinematic journey through the desert landscapes, featuring dramatic color grading and narrative pacing."
+  },
+  {
+    id: "7",
     title: "Neon Dreams - Animation",
     category: "Visual Motion Art",
     videoUrl: cinematic1,
@@ -53,7 +104,7 @@ export const projects: ProjectType[] = [
     id: "4",
     title: "Ocean Depths Documentary",
     category: "Cinematic Videography",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-jellyfish-swimming-in-the-ocean-8659-large.mp4",
+    videoUrl: cinematicVideography1,
     year: 2022,
     client: "Blue Planet Media",
     description: "Documentary editing featuring seamless transitions between underwater footage and interviews."
