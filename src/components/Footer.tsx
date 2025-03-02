@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Instagram, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
 
           <div className="text-center max-w-lg mx-auto mb-8">
             <h2 className="font-display text-2xl font-bold mb-4">
-              Wasil Ali
+              S. Wasil Ali
             </h2>
             <p className="text-muted-foreground">
               Video Editor & Animator specializing in creating compelling visual
@@ -34,7 +34,7 @@ const Footer = () => {
 
           <div className="flex space-x-4 mb-10">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/s_wasil.ali?igsh=eTMzYzZhdzA0bzQz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
@@ -43,16 +43,7 @@ const Footer = () => {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/syed-wasil-ali-9835bb315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
@@ -61,7 +52,7 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:contact@wasilali.com"
+              href="mailto:syedwasilali663@gmail.com"
               className="p-3 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
               aria-label="Email"
             >
@@ -85,7 +76,7 @@ const Footer = () => {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Wasil Ali. All rights reserved.
+            © {new Date().getFullYear()} S. Wasil Ali. All rights reserved.
           </div>
         </div>
       </div>

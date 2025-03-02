@@ -3,32 +3,18 @@ import { useEffect, useRef } from "react";
 
 const experienceData = [
   {
-    period: "2022 - Present",
-    position: "Senior Video Editor & Animator",
-    company: "CreativeVision Studios",
+    period: "Present",
+    position: "Freelance Video Editor, Animator & VFX Artist",
+    company: "Various Clients",
     description:
-      "Lead video editor for major brand campaigns, coordinating with directors and marketing teams to craft compelling visual narratives. Specialized in high-end compositing and color grading for premium clients.",
+      "Editing short films, commercials, and product videos. Creating motion graphics and animated intros. Using Adobe Premiere Pro and After Effects for smooth transitions and effects. Applying VFX techniques like tracking, green screen removal, and compositing. Focusing on sound design and audio mixing, working closely with clients to deliver high-quality content.",
   },
   {
-    period: "2019 - 2022",
-    position: "Motion Graphics Designer",
-    company: "Digital Pulse Media",
+    period: "1 Year",
+    position: "Video Editor, Animator, VFX Artist",
+    company: "Brand Makers",
     description:
-      "Created broadcast-quality motion graphics for television networks and streaming platforms. Developed style guides and animation systems for consistent brand identity across campaigns.",
-  },
-  {
-    period: "2017 - 2019",
-    position: "Video Editor",
-    company: "FilmCraft Productions",
-    description:
-      "Edited short films, documentaries, and commercial content with a focus on storytelling and pacing. Collaborated with directors to achieve artistic vision while meeting technical requirements.",
-  },
-  {
-    period: "2015 - 2017",
-    position: "Junior Animator",
-    company: "Animation Nexus",
-    description:
-      "Assisted senior animators in creating 2D and 3D animations for clients in the entertainment and advertising industries. Developed skills in character animation and motion principles.",
+      "Edited brand ads, promotional videos, and social media content aligned with brand identity. Designed motion graphics and animations for dynamic content. Applied cinematic transitions, smooth cuts, and high-end color grading. Collaborated with creative teams to shape resonant stories. Optimized content for various social media platforms.",
   },
 ];
 
@@ -70,8 +56,8 @@ const Experience = () => {
         <div className="text-center mb-16">
           <h2 className="section-title">Work Experience</h2>
           <p className="section-subtitle">
-            Over 8 years of professional experience in video editing, animation,
-            and motion graphics for leading brands and studios.
+            Over a year of professional experience in video editing, animation,
+            and visual effects for brands and content creators.
           </p>
         </div>
 

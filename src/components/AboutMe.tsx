@@ -1,5 +1,5 @@
 
-import { User } from "lucide-react";
+import { User, Download, Phone, Mail, Linkedin, Instagram } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const AboutMe = () => {
@@ -54,7 +54,7 @@ const AboutMe = () => {
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-secondary/20">
               <img
                 src="/about-image.jpg"
-                alt="Wasil Ali - Video Editor & Animator"
+                alt="S. Wasil Ali - Video Editor & Animator"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   // Fallback to a placeholder if image fails to load
@@ -68,30 +68,55 @@ const AboutMe = () => {
 
           <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 delay-400">
             <div className="space-y-6 text-left">
-              <h4 className="text-2xl font-bold">Wasil Ali</h4>
+              <h4 className="text-2xl font-bold">S. Wasil Ali</h4>
               <p className="text-muted-foreground leading-relaxed">
-                With over 8 years of experience in video editing and animation, I specialize in creating compelling visual 
-                narratives for brands, agencies, and content creators. My approach combines technical expertise with creative 
-                storytelling to deliver projects that exceed expectations.
+                I'm Syed Wasil Ali, a Video Editor, Animator, and VFX Artist passionate about bringing ideas to life. 
+                With over a year of experience, I've worked on brand commercials, social media content, short films, 
+                and motion graphics, always aiming for engaging visuals.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                I graduated from the University of Arts with a degree in Digital Media, and have worked with clients ranging from 
-                startups to established brands like Netflix, Adobe, and Google. My work has been featured in several 
-                film festivals and industry showcases.
+                I started with a love for storytelling and post-production magic. I've collaborated with Brand Makers 
+                and freelanced with various brands, using Adobe Premiere Pro, After Effects, and color grading to enhance content.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                When I'm not editing or animating, you can find me exploring new filmmaking techniques, photographing urban 
-                landscapes, or mentoring aspiring editors through online workshops.
+                Beyond editing, I constantly explore new techniques and push creative limits. I believe every frame 
+                tells a story, and I'm dedicated to making each one as impactful as possible.
               </p>
               
-              <div className="pt-4">
+              <div className="pt-4 space-y-4">
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <Mail className="h-4 w-4 text-primary" />
+                    <a href="mailto:syedwasilali663@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                      syedwasilali663@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Phone className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground">+92 3363802473 (main)</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Phone className="h-4 w-4 text-primary opacity-0" />
+                    <span className="text-muted-foreground">+92 3353457142</span>
+                  </div>
+                </div>
+                
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a 
-                    href="mailto:contact@wasilali.com" 
+                    href="mailto:syedwasilali663@gmail.com" 
                     className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90"
                   >
                     <User className="mr-2 h-4 w-4" />
                     Contact Me
+                  </a>
+                  <a 
+                    href="https://drive.google.com/file/d/1soi4-1qmY7jK03_e-GtvR9gngbxXtfIF/view?usp=sharing" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium transition-colors hover:bg-secondary/80"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Resume
                   </a>
                 </div>
               </div>
