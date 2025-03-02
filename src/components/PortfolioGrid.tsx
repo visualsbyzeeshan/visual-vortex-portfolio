@@ -67,17 +67,6 @@ const PortfolioGrid = () => {
     }
   };
 
-  const handleClick = (id: string) => {
-    const video = videoRefs.current[id];
-    if (video) {
-      if (video.paused) {
-        video.play().catch((error) => console.log("Playback failed:", error));
-      } else {
-        video.pause();
-      }
-    }
-  };
-
   return (
     <div className="py-8">
       <div className="mb-10 overflow-x-auto hide-scrollbar">
@@ -108,7 +97,6 @@ const PortfolioGrid = () => {
             className="portfolio-grid-item portfolio-item opacity-0 transition-opacity duration-500 hover:scale-105 hover:z-10"
             onMouseEnter={() => handleMouseEnter(project.id)}
             onMouseLeave={() => handleMouseLeave(project.id)}
-            onClick={() => handleClick(project.id)}
           >
             {project.videoUrl ? (
               <video
@@ -120,26 +108,13 @@ const PortfolioGrid = () => {
                 loop
                 muted
                 playsInline
-                poster={project.image}
+                controls={false}
               />
             ) : (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[250px] object-cover object-center rounded-xl"
-                loading="lazy"
-              />
+              <div className="w-full h-[250px] bg-secondary/30 flex items-center justify-center rounded-xl">
+                <p className="text-muted-foreground">No video available</p>
+              </div>
             )}
-            <div className="portfolio-item-overlay rounded-xl">
-              <span className="text-sm font-medium mb-1 opacity-70">
-                {project.category} • {project.year}
-              </span>
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-sm opacity-70 mb-3">
-                Client: {project.client}
-              </p>
-              <p className="text-sm opacity-70">{project.description}</p>
-            </div>
           </div>
         ))}
       </div>

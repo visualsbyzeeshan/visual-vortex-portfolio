@@ -9,21 +9,18 @@ const featuredProjects = [
     id: "1",
     title: "Cinematic Videography",
     category: "Cinematic Videography",
-    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1025&auto=format&fit=crop",
     videoUrl: "https://drive.google.com/uc?export=download&id=1K4ORhPhlubdsCwfZ7ORPrh2XEs9cRRYs",
   },
   {
     id: "2",
     title: "Promotional & Commercial",
     category: "Promotional & Commercial",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1170&auto=format&fit=crop",
     videoUrl: "https://drive.google.com/uc?export=download&id=1RjhVy_iPK3Qy54swQEUWdnCzGkYX5NwT",
   },
   {
     id: "3",
     title: "Visual Effects & CGI",
     category: "Visual Effects & CGI",
-    image: "https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?q=80&w=1170&auto=format&fit=crop",
     videoUrl: "https://drive.google.com/uc?export=download&id=1DAYTwWQn0WsF7tLfbc6kZukWaMS_3MG4",
   },
 ];
@@ -105,7 +102,6 @@ const PortfolioSection = () => {
                 loop
                 muted
                 playsInline
-                poster={project.image}
                 controls={false}
               />
             </div>
