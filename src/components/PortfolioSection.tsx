@@ -1,27 +1,26 @@
-
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Featured project data with direct video URLs
+// Featured project data with updated video URLs
 const featuredProjects = [
   {
     id: "1",
     title: "Cinematic Videography",
     category: "Cinematic Videography",
-    videoUrl: "https://drive.google.com/uc?export=download&id=1K4ORhPhlubdsCwfZ7ORPrh2XEs9cRRYs",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-down-a-mountain-41576-large.mp4",
   },
   {
     id: "2",
     title: "Promotional & Commercial",
     category: "Promotional & Commercial",
-    videoUrl: "https://drive.google.com/uc?export=download&id=1RjhVy_iPK3Qy54swQEUWdnCzGkYX5NwT",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-urban-landscape-in-movement-seen-from-a-car-window-9587-large.mp4",
   },
   {
     id: "3",
     title: "Visual Effects & CGI",
     category: "Visual Effects & CGI",
-    videoUrl: "https://drive.google.com/uc?export=download&id=1DAYTwWQn0WsF7tLfbc6kZukWaMS_3MG4",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4",
   },
 ];
 
