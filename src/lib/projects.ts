@@ -1,3 +1,4 @@
+
 import advertisementVideo from '../media/Advertisment.mp4'
 import cinematic1 from '../media/cinematic1.mp4'
 import cinematicVideography1 from '../media/1. Cinematic Videography.mp4';
@@ -164,3 +165,4 @@ export const projects: ProjectType[] = [
     description: "Animated explainer video for new technology product, focusing on clarity and engaging visuals."
   },
 ];
+
