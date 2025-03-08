@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -86,25 +87,33 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700 hover:scale-105 hover:z-10 relative overflow-hidden rounded-xl"
+              className="portfolio-item portfolio-reveal opacity-0 translate-y-10 transition-all duration-700 group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg hover:scale-[1.03] hover:z-10"
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}
               onMouseEnter={() => handleMouseEnter(project.id)}
               onMouseLeave={() => handleMouseLeave(project.id)}
             >
-              <video
-                ref={(el) => {
-                  if (el) videoRefs.current[project.id] = el;
-                }}
-                src={project.videoUrl}
-                className="w-[350px] h-[250px] object-fill object-center rounded-xl"
-                loop
-                playsInline
-                controls={false}
-              />
+              <div className="aspect-[9/16] w-full">
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[project.id] = el;
+                  }}
+                  src={project.videoUrl}
+                  className="w-full h-full object-cover object-center rounded-xl"
+                  loop
+                  playsInline
+                  controls={false}
+                />
+                
+                {/* Add overlay with project information */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 rounded-xl">
+                  <h3 className="text-white font-medium text-lg">{project.title}</h3>
+                  <p className="text-white/80 text-sm">{project.category}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

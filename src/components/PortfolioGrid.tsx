@@ -9,6 +9,9 @@ const PortfolioGrid = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
+  // Duplicated video IDs to filter out from "All" category
+  const duplicateVideoIds = ["pc1", "pc2", "pc4", "vma1", "ve1", "cv4"];
+
   // Immediate useEffect to set initial visibility
   useEffect(() => {
     // Small delay to ensure DOM is ready
@@ -26,11 +29,11 @@ const PortfolioGrid = () => {
   useEffect(() => {
     setIsAnimating(true);
     const timer = setTimeout(() => {
-      setFilteredProjects(
-        selectedCategory === "All"
-          ? projects
-          : projects.filter((project) => project.category === selectedCategory)
-      );
+      let filtered = selectedCategory === "All"
+        ? projects.filter(project => !duplicateVideoIds.includes(project.id))
+        : projects.filter((project) => project.category === selectedCategory);
+      
+      setFilteredProjects(filtered);
       setIsAnimating(false);
     }, 300);
 
@@ -67,6 +70,9 @@ const PortfolioGrid = () => {
     }
   };
 
+  // Determine if the current category is YouTube content
+  const isYoutubeCategory = selectedCategory === "Youtube Content";
+
   return (
     <div className="py-12">
       {/* Category filters with improved styling */}
@@ -86,7 +92,7 @@ const PortfolioGrid = () => {
         </div>
       </div>
 
-      {/* Portfolio grid with 9:16 aspect ratio */}
+      {/* Portfolio grid with dynamic aspect ratio based on category */}
       <div
         ref={gridRef}
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 transition-opacity duration-300 ${
@@ -100,7 +106,11 @@ const PortfolioGrid = () => {
             onMouseEnter={() => handleMouseEnter(project.id)}
             onMouseLeave={() => handleMouseLeave(project.id)}
           >
-            <div className="relative w-full overflow-hidden rounded-xl shadow-md aspect-[9/16] hover:shadow-lg transition-all duration-300 transform hover:scale-[1.03] hover:z-10">
+            <div 
+              className={`relative w-full overflow-hidden rounded-xl shadow-md transition-all duration-300 transform hover:scale-[1.03] hover:z-10 hover:shadow-lg ${
+                project.category === "Youtube Content" ? "aspect-[16/9]" : "aspect-[9/16]"
+              }`}
+            >
               {project.videoUrl ? (
                 <video
                   ref={(el) => {
