@@ -68,9 +68,10 @@ const PortfolioGrid = () => {
   };
 
   return (
-    <div className="py-8">
-      <div className="mb-10 overflow-x-auto hide-scrollbar">
-        <div className="flex space-x-2 min-w-max md:justify-center pb-2">
+    <div className="py-12">
+      {/* Category filters with improved styling */}
+      <div className="mb-14 overflow-x-auto hide-scrollbar">
+        <div className="flex space-x-3 min-w-max md:justify-center pb-2">
           {categories.map((category) => (
             <button
               key={category}
@@ -85,36 +86,44 @@ const PortfolioGrid = () => {
         </div>
       </div>
 
+      {/* Portfolio grid with 9:16 aspect ratio */}
       <div
         ref={gridRef}
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-300 ${
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 transition-opacity duration-300 ${
           isAnimating ? "opacity-0" : "opacity-100"
         }`}
       >
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="portfolio-grid-item portfolio-item opacity-0 transition-opacity duration-500 hover:scale-105 hover:z-10"
+            className="portfolio-grid-item opacity-0 transition-opacity duration-500 group mb-8"
             onMouseEnter={() => handleMouseEnter(project.id)}
             onMouseLeave={() => handleMouseLeave(project.id)}
           >
-            {project.videoUrl ? (
-              <video
-                ref={(el) => {
-                  if (el) videoRefs.current[project.id] = el;
-                }}
-                src={project.videoUrl}
-                className="w-full h-[250px] object-cover object-center rounded-xl"
-                loop
-                playsInline
-                muted
-                controls={false}
-              />
-            ) : (
-              <div className="w-full h-[250px] bg-secondary/30 flex items-center justify-center rounded-xl">
-                <p className="text-muted-foreground">No video available</p>
+            <div className="relative w-full overflow-hidden rounded-xl shadow-md aspect-[9/16] hover:shadow-lg transition-all duration-300 transform hover:scale-[1.03] hover:z-10">
+              {project.videoUrl ? (
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[project.id] = el;
+                  }}
+                  src={project.videoUrl}
+                  className="w-full h-full object-cover object-center rounded-xl"
+                  loop
+                  playsInline
+                  controls={false}
+                />
+              ) : (
+                <div className="w-full h-full bg-secondary/30 flex items-center justify-center rounded-xl">
+                  <p className="text-muted-foreground">No video available</p>
+                </div>
+              )}
+              
+              {/* Overlay with project title */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 rounded-xl">
+                <h3 className="text-white font-medium text-lg">{project.title}</h3>
+                <p className="text-white/80 text-sm">{project.category}</p>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

@@ -9,9 +9,9 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <main className="pt-32 pb-20">
+    <main className="pt-28 pb-24">
       <div className="container-custom">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-6">
             Portfolio
           </h1>
