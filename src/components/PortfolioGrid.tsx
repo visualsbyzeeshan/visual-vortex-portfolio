@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { projects, categories } from "@/lib/projects";
+import { projects, categories, isSquareAspectRatio } from "@/lib/projects";
 
 const PortfolioGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -9,8 +9,8 @@ const PortfolioGrid = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
-  // Duplicated video IDs to filter out from "All" category
-  const duplicateVideoIds = ["pc1", "pc2", "pc4", "vma1", "ve1", "cv4"];
+  // Video IDs to filter out from "All" category
+  const excludedVideoIds = ["pc1", "pc2", "pc4", "vma1", "ve1", "cv4", "ve3", "ve4", "ve5"];
 
   // Immediate useEffect to set initial visibility
   useEffect(() => {
@@ -30,7 +30,7 @@ const PortfolioGrid = () => {
     setIsAnimating(true);
     const timer = setTimeout(() => {
       let filtered = selectedCategory === "All"
-        ? projects.filter(project => !duplicateVideoIds.includes(project.id))
+        ? projects.filter(project => !excludedVideoIds.includes(project.id))
         : projects.filter((project) => project.category === selectedCategory);
       
       setFilteredProjects(filtered);
@@ -92,7 +92,7 @@ const PortfolioGrid = () => {
         </div>
       </div>
 
-      {/* Portfolio grid with dynamic aspect ratio based on category */}
+      {/* Portfolio grid with dynamic aspect ratio based on category and video */}
       <div
         ref={gridRef}
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 transition-opacity duration-300 ${
@@ -108,7 +108,11 @@ const PortfolioGrid = () => {
           >
             <div 
               className={`relative w-full overflow-hidden rounded-xl shadow-md transition-all duration-300 transform hover:scale-[1.03] hover:z-10 hover:shadow-lg ${
-                project.category === "Youtube Content" ? "aspect-[16/9]" : "aspect-[9/16]"
+                project.category === "Youtube Content" 
+                  ? "aspect-[16/9]" 
+                  : project.category === "Visual Motion Art" && isSquareAspectRatio(project.id)
+                    ? "aspect-square" 
+                    : "aspect-[9/16]"
               }`}
             >
               {project.videoUrl ? (
@@ -128,9 +132,8 @@ const PortfolioGrid = () => {
                 </div>
               )}
               
-              {/* Overlay with project title */}
+              {/* Overlay with category name only */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 rounded-xl">
-                <h3 className="text-white font-medium text-lg">{project.title}</h3>
                 <p className="text-white/80 text-sm">{project.category}</p>
               </div>
             </div>

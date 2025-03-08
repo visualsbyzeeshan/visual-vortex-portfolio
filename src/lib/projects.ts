@@ -65,6 +65,12 @@ export const categories = [
   "Youtube Content"
 ];
 
+const squareAspectRatioVideos = ["vma2", "vma3", "vma5", "vma7", "vma9", "vma11", "vma13", "vma15"];
+
+export const isSquareAspectRatio = (id: string): boolean => {
+  return squareAspectRatioVideos.includes(id);
+};
+
 export const projects: ProjectType[] = [
   {
     id: "cv1",

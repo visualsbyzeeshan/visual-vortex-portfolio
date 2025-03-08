@@ -1,30 +1,29 @@
-
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import videoUrll from '../media/Advertisment.mp4'
-import landingPageVideo2 from '../media/landingPageVideo2.mp4'
-import cinematicVideography6 from '../media/6. Cinematic Videography.mp4';
+import promotionalCommercial1 from '../media/1. Promotional & Commercial.mp4';
+import promotionalCommercial2 from '../media/2. Promotional & Commercial.mp4';
+import visualMotionArt1 from '../media/1. Visual Motion Art.mp4';
 
-// Featured project data with updated video URLs
+// Featured project data with specified videos only
 const featuredProjects = [
   {
     id: "1",
-    title: "Cinematic Videography",
-    category: "Cinematic Videography",
-    videoUrl: videoUrll,
+    title: "Promotional & Commercial",
+    category: "Promotional & Commercial",
+    videoUrl: promotionalCommercial1,
   },
   {
     id: "2",
     title: "Promotional & Commercial",
     category: "Promotional & Commercial",
-    videoUrl: landingPageVideo2,
+    videoUrl: promotionalCommercial2,
   },
   {
     id: "3",
-    title: "Visual Effects & CGI",
-    category: "Visual Effects & CGI",
-    videoUrl: cinematicVideography6,
+    title: "Visual Motion Art",
+    category: "Visual Motion Art",
+    videoUrl: visualMotionArt1,
   },
 ];
 
@@ -108,9 +107,7 @@ const PortfolioSection = () => {
                   controls={false}
                 />
                 
-                {/* Add overlay with project information */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 rounded-xl">
-                  <h3 className="text-white font-medium text-lg">{project.title}</h3>
                   <p className="text-white/80 text-sm">{project.category}</p>
                 </div>
               </div>
