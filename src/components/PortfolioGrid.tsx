@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { projects, categories } from "@/lib/projects";
 
@@ -8,7 +9,9 @@ const PortfolioGrid = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
 
+  // Immediate useEffect to set initial visibility
   useEffect(() => {
+    // Small delay to ensure DOM is ready
     const timer = setTimeout(() => {
       const items = document.querySelectorAll(".portfolio-grid-item");
       items.forEach((item) => {
@@ -35,6 +38,7 @@ const PortfolioGrid = () => {
   }, [selectedCategory]);
 
   useEffect(() => {
+    // After filtering, apply the fade-in animation
     const fadeInTimer = setTimeout(() => {
       const items = document.querySelectorAll(".portfolio-grid-item");
       items.forEach((item, index) => {
@@ -103,6 +107,7 @@ const PortfolioGrid = () => {
                 className="w-full h-[250px] object-cover object-center rounded-xl"
                 loop
                 playsInline
+                muted
                 controls={false}
               />
             ) : (
