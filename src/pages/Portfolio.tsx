@@ -1,12 +1,16 @@
 
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Portfolio = () => {
-  // Scroll to top when the component mounts
+  const location = useLocation();
+
+  // Scroll to top when the component mounts or path changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    console.log("Portfolio page loaded at path:", location.pathname);
+  }, [location.pathname]);
 
   return (
     <main className="pt-28 pb-24">
