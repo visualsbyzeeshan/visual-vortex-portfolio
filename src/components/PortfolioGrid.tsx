@@ -33,6 +33,28 @@ const PortfolioGrid = () => {
         ? projects.filter(project => !excludedVideoIds.includes(project.id))
         : projects.filter((project) => project.category === selectedCategory);
       
+      // Sort filtered projects by aspect ratio for the "All" category
+      if (selectedCategory === "All") {
+        // First vertical (9:16), then square (1:1), then horizontal (16:9)
+        filtered = [
+          // Vertical videos (9:16)
+          ...filtered.filter(project => 
+            project.category === "Visual Motion Art" && 
+            !isSquareAspectRatio(project.id) &&
+            project.category !== "Youtube Content"
+          ),
+          // Square videos (1:1)
+          ...filtered.filter(project => 
+            isSquareAspectRatio(project.id)
+          ),
+          // Horizontal videos (16:9) - Youtube Content and others
+          ...filtered.filter(project => 
+            project.category === "Youtube Content" || 
+            (project.category !== "Visual Motion Art" && !isSquareAspectRatio(project.id))
+          ),
+        ];
+      }
+      
       setFilteredProjects(filtered);
       setIsAnimating(false);
     }, 300);
@@ -69,9 +91,6 @@ const PortfolioGrid = () => {
       video.currentTime = 0;
     }
   };
-
-  // Determine if the current category is YouTube content
-  const isYoutubeCategory = selectedCategory === "Youtube Content";
 
   return (
     <div className="py-12">
