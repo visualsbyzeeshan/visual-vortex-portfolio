@@ -37,17 +37,16 @@ const PortfolioGrid = () => {
       if (selectedCategory === "All") {
         // First vertical (9:16), then square (1:1), then horizontal (16:9)
         filtered = [
-          // Vertical videos (9:16)
+          // Vertical videos (9:16) - Visual Motion Art that are not square
           ...filtered.filter(project => 
             project.category === "Visual Motion Art" && 
-            !isSquareAspectRatio(project.id) &&
-            project.category !== "Youtube Content"
+            !isSquareAspectRatio(project.id)
           ),
           // Square videos (1:1)
           ...filtered.filter(project => 
             isSquareAspectRatio(project.id)
           ),
-          // Horizontal videos (16:9) - Youtube Content and others
+          // Horizontal videos (16:9) - Youtube Content and others that are not square or vertical Visual Motion Art
           ...filtered.filter(project => 
             project.category === "Youtube Content" || 
             (project.category !== "Visual Motion Art" && !isSquareAspectRatio(project.id))
